@@ -1,0 +1,6 @@
+<persistence>
+    <persistence-unit>
+        <description>Persistence Unit For test</description>
+        <class>com.spring.example.entity.Student</class>
+    </persistence-unit>
+</persistence>
