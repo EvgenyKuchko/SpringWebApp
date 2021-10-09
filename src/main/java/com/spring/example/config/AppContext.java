@@ -19,6 +19,7 @@ import java.util.Properties;
 public class AppContext {
 
     @Autowired
+    //представляет доступ к properties
     private Environment environment;
 
     @Bean
