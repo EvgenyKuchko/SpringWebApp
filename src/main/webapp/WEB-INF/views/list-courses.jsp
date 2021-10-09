@@ -15,11 +15,11 @@
 <body>
 <div class="container">
     <div class="col-md-offset-1 col-md-10">
-        <h2>CRM - Course Relationship Manager</h2>
+        <h2>List of courses</h2>
         <hr/>
 
         <input type="button" value="Add Course"
-               onclick="window.location.href='showForm'; return false;"
+               onclick="window.location.href='form'; return false;"
                class="btn btn-primary"/>
         <br/><br/>
         <div class="panel panel-info">
@@ -34,15 +34,15 @@
                         <th>Action</th>
                     </tr>
 
-                    <!-- loop over and print our students -->
+                    <!-- loop over and print our courses -->
                     <c:forEach var="tempCourse" items="${courses}">
 
-                        <!-- construct an "update" link with student id -->
+                        <!-- construct an "update" link with course id -->
                         <c:url var="updateLink" value="/course/updateForm">
                             <c:param name="courseId" value="${tempCourse.id}"/>
                         </c:url>
 
-                        <!-- construct an "delete" link with student id -->
+                        <!-- construct an "delete" link with course id -->
                         <c:url var="deleteLink" value="/course/delete">
                             <c:param name="courseId" value="${tempCourse.id}"/>
                         </c:url>

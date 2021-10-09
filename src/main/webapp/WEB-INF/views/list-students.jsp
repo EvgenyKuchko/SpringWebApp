@@ -15,7 +15,7 @@
 <body>
 <div class="container">
     <div class="col-md-offset-1 col-md-10">
-        <h2>CRM - Student Relationship Manager</h2>
+        <h2>List of students</h2>
         <hr/>
 
         <input type="button" value="Add Student"
