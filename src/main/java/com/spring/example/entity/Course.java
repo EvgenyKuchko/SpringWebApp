@@ -14,14 +14,18 @@ public class Course {
     private String name;
     @Column(name="duration")
     private String duration;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="descroption_id", referencedColumnName = "id")
+    private CourseDescription courseDescription;
 
     public Course() {
     }
 
-    public Course(int id, String name, String duration) {
+    public Course(int id, String name, String duration, CourseDescription courseDescription) {
         this.id = id;
         this.name = name;
         this.duration = duration;
+        this.courseDescription = courseDescription;
     }
 
     public int getId() {
