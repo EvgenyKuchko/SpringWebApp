@@ -47,6 +47,14 @@
                             <c:param name="courseId" value="${tempCourse.id}"/>
                         </c:url>
 
+                        <c:url var="showDescriptionLink" value="/courseDescription/show">
+                            <c:param name="courseId" value="${tempCourse.id}"/>
+                        </c:url>
+
+                        <c:url var="addDescriptionLink" value="/course/addDescription">
+                            <c:param name="courseId" value="${tempCourse.id}"/>
+                        </c:url>
+
                         <tr>
                             <td>${tempCourse.name}</td>
                             <td>${tempCourse.duration}</td>
@@ -54,7 +62,9 @@
                             <td>
                                 <!-- display the update link --> <a href="${updateLink}">Update</a>
                                 | <a href="${deleteLink}"
-                                     onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">Delete</a>
+                                     onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">Delete</a> |
+                                <a href="${showDescriptionLink}">Show description</a> |
+                                <a href="${addDescriptionLink}">Add description</a>
                             </td>
 
                         </tr>
