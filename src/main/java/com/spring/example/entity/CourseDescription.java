@@ -15,17 +15,18 @@ public class CourseDescription {
     private int coast;
     @Column(name="name")
     private String name;
-    @OneToOne(mappedBy = "description")
+
+    @OneToOne(mappedBy = "courseDescription")
     private Course course;
 
     public CourseDescription() {
     }
 
-    public CourseDescription(int id, int numberOfStudents, int coast, String name) {
-        this.id = id;
+    public CourseDescription(int numberOfStudents, int coast, String name, Course course) {
         this.numberOfStudents = numberOfStudents;
         this.coast = coast;
         this.name = name;
+        this.course = course;
     }
 
     public int getId() {
@@ -60,13 +61,22 @@ public class CourseDescription {
         this.name = name;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
     @Override
     public String toString() {
-        return "DescriptionTable{" +
+        return "CourseDescription{" +
                 "id=" + id +
                 ", numberOfStudents=" + numberOfStudents +
                 ", coast=" + coast +
                 ", name='" + name + '\'' +
+                ", course=" + course +
                 '}';
     }
 }

@@ -31,7 +31,7 @@ public class CourseController {
     }
 
     // при помощи аннотации modelAttribute все значение из html формы помещаются
-    // в модель(model) student и сохраняются на полях объекта
+    // в модель(model) course и сохраняются на полях объекта
     @PostMapping("/saveCourse")
     public String saveCourse(@ModelAttribute("course") Course course){
         courseService.saveCourse(course);
@@ -49,5 +49,16 @@ public class CourseController {
     public String deleteCourse(@RequestParam("courseId") int courseId){
         courseService.deleteCourse(courseId);
         return "redirect:/course/list";
+    }
+
+    @GetMapping("/showDescription")
+    public String showDescription(@RequestParam("descriptionId") int descriptionId){
+        return "redirect:/courseDescription/show";
+    }
+
+    @GetMapping("/addDescription")
+    public String addDescription(){
+
+        return "description-form";
     }
 }

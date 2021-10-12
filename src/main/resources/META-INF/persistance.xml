@@ -1,8 +1,0 @@
-<persistence>
-    <persistence-unit>
-        <description>Persistence Unit For test</description>
-        <class>com.spring.example.entity.Student</class>
-        <class>com.spring.example.entity.Course</class>
-        <class>com.spring.example.entity.CourseDescription</class>
-    </persistence-unit>
-</persistence>

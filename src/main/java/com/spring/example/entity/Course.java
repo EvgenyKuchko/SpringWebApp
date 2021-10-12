@@ -1,28 +1,27 @@
 package com.spring.example.entity;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name="course")
+@Table(name = "course")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="duration")
+    @Column(name = "duration")
     private String duration;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="descroption_id", referencedColumnName = "id")
+
+    @OneToOne
+    @JoinColumn(name = "description_id", referencedColumnName = "id", unique = true, nullable = true)
     private CourseDescription courseDescription;
 
     public Course() {
     }
 
-    public Course(int id, String name, String duration, CourseDescription courseDescription) {
-        this.id = id;
+    public Course(String name, String duration, CourseDescription courseDescription) {
         this.name = name;
         this.duration = duration;
         this.courseDescription = courseDescription;
@@ -58,19 +57,7 @@ public class Course {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", duration='" + duration + '\'' +
+                ", courseDescription=" + courseDescription +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return id == course.id && Objects.equals(name, course.name) && Objects.equals(duration, course.duration);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, duration);
     }
 }

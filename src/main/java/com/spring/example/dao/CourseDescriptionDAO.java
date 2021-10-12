@@ -6,11 +6,13 @@ import java.util.List;
 
 public interface CourseDescriptionDAO {
 
-    List<CourseDescription> getDescription();
+    List<CourseDescription> getDescriptions();
 
     void saveDescription(CourseDescription courseDescription);
 
     CourseDescription getDescription(int id);
 
     void deleteDescription(int id);
+
+    CourseDescription getDescriptionByCourseId(int id);
 }

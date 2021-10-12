@@ -19,7 +19,7 @@ public class CourseDescriptionDAOImpl implements CourseDescriptionDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    public List<CourseDescription> getDescription() {
+    public List<CourseDescription> getDescriptions() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<CourseDescription> cq = cb.createQuery(CourseDescription.class);
@@ -47,5 +47,15 @@ public class CourseDescriptionDAOImpl implements CourseDescriptionDAO {
         Session session = sessionFactory.getCurrentSession();
         CourseDescription dc = session.byId(CourseDescription.class).load(id);
         session.delete(dc);
+    }
+
+    @Override
+    public CourseDescription getDescriptionByCourseId(int courseId) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query= sessionFactory.getCurrentSession().
+                createQuery("from description where course_id=:paramCourseId");
+        query.setParameter("course_id", courseId);
+        CourseDescription cd = (CourseDescription) ((org.hibernate.query.Query<?>) query).uniqueResult();
+        return cd;
     }
 }
